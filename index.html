@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>환타 파인애플 | FANTA PINEAPPLE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --fanta-yellow: #FFD200;
+            --fanta-orange: #FF8C00;
+            --fanta-blue: #0047BB;
+            --fanta-green: #00A859;
+            --white: #FFFFFF;
+            --text-dark: #333333;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: var(--white);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Black Han Sans', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            color: var(--fanta-orange);
+            font-family: 'Black Han Sans', sans-serif;
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 700;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--fanta-orange);
+            transform: scale(1.1);
+        }
+
+        /* Hero Section */
+        #home {
+            height: 100vh;
+            background: radial-gradient(circle at center, #FFF9C4 0%, var(--fanta-yellow) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-text {
+            flex: 1;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: 5rem;
+            color: var(--fanta-blue);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-shadow: 4px 4px 0px var(--white);
+        }
+
+        .hero-text p {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--fanta-orange);
+            margin-bottom: 40px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: var(--fanta-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 900;
+            box-shadow: 0 10px 20px rgba(0, 71, 187, 0.3);
+            transition: var(--transition);
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 71, 187, 0.5);
+            background-color: var(--fanta-orange);
+        }
+
+        /* CSS Fanta Can Visual */
+        .hero-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .can-container {
+            width: 200px;
+            height: 400px;
+            position: relative;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(5deg); }
+            50% { transform: translateY(-30px) rotate(-5deg); }
+        }
+
+        .can-body {
+            width: 100%;
+            height: 100%;
+            background-color: var(--fanta-yellow);
+            border-radius: 30px;
+            border: 4px solid var(--fanta-orange);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 20px 30px 50px rgba(0,0,0,0.1);
+        }
+
+        .can-top {
+            width: 180px;
+            height: 20px;
+            background: linear-gradient(to bottom, #ddd, #999);
+            position: absolute;
+            top: -15px;
+            left: 10px;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .fanta-logo-circle {
+            width: 130px;
+            height: 130px;
+            background-color: var(--fanta-orange);
+            border-radius: 50%;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 5px solid var(--white);
+        }
+
+        .fanta-logo-text {
+            font-family: 'Black Han Sans', sans-serif;
+            color: var(--fanta-blue);
+            font-size: 2.2rem;
+            transform: rotate(-10deg);
+        }
+
+        .leaf {
+            width: 50px;
+            height: 30px;
+            background-color: var(--fanta-green);
+            border-radius: 50% 0 50% 0;
+            position: absolute;
+            top: -10px;
+            right: 0;
+            transform: rotate(20deg);
+        }
+
+        /* Bubble Animations */
+        .bubble {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: rise 3s infinite ease-in;
+        }
+
+        @keyframes rise {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-100px) scale(1.5); opacity: 0; }
+        }
+
+        /* Product Features Section */
+        #product {
+            padding: 100px 10%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            color: var(--fanta-blue);
+            margin-bottom: 60px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            padding: 40px;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--fanta-yellow);
+            box-shadow: 0 20px 40px rgba(255, 210, 0, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: var(--fanta-orange);
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Story Section */
+        #story {
+            padding: 100px 10%;
+            background-color: var(--fanta-orange);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .story-content {
+            flex: 1;
+        }
+
+        .story-content h2 {
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+        }
+
+        .story-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .story-image {
+            flex: 1;
+            background: var(--fanta-yellow);
+            height: 400px;
+            border-radius: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 5rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 100px 10%;
+            text-align: center;
+        }
+
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form input {
+            width: 100%;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 2px solid var(--fanta-yellow);
+            border-radius: 10px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .contact-form input:focus {
+            border-color: var(--fanta-blue);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 20px;
+            background-color: var(--fanta-blue);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Black Han Sans', sans-serif;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .submit-btn:hover {
+            background-color: var(--fanta-orange);
+        }
+
+        /* Footer */
+        footer {
+            padding: 50px;
+            text-align: center;
+            background: #f9f9f9;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-logo {
+            font-family: 'Black Han Sans', sans-serif;
+            color: var(--fanta-orange);
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .copyright {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 992px) {
+            #home {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 120px;
+                height: auto;
+                padding-bottom: 50px;
+            }
+            .hero-text h1 { font-size: 3.5rem; }
+            .hero-visual { margin-top: 50px; }
+            #story { flex-direction: column; text-align: center; }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .hero-text h1 { font-size: 2.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="bubble-container"></div>
+
+    <nav>
+        <div class="logo">FANTA PINEAPPLE</div>
+        <div class="nav-links">
+            <a href="#home">홈페이지</a>
+            <a href="#product">제품</a>
+            <a href="#story">스토리</a>
+            <a href="#contact">문의</a>
+        </div>
+    </nav>
+
+    <section id="home">
+        <div class="hero-text">
+            <h1>톡 쏘는 상큼함,<br>환타 파인애플!</h1>
+            <p>한 모금에 퍼지는 달콤한 파인애플의 마법.<br>지금 바로 시원하게 즐기세요!</p>
+            <a href="#product" class="cta-btn">상큼함 맛보기</a>
+        </div>
+        <div class="hero-visual">
+            <div class="can-container">
+                <div class="can-top"></div>
+                <div class="can-body">
+                    <div class="fanta-logo-circle">
+                        <div class="leaf"></div>
+                        <div class="fanta-logo-text">FANTA</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="product" class="reveal">
+        <h2 class="section-title">Fresh Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🍍</span>
+                <h3>상큼한 파인애플 맛</h3>
+                <p>진한 파인애플 향이 입안 가득! 남녀노소 누구나 좋아하는 달콤 상큼한 맛입니다.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🫧</span>
+                <h3>톡 쏘는 탄산</h3>
+                <p>강렬한 탄산의 청량감이 갈증을 시원하게 해소해 줍니다. 첫 모금부터 끝까지 짜릿하게!</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">☀️</span>
+                <h3>시원한 여름 음료</h3>
+                <p>무더운 여름, 얼음 컵과 함께라면 그곳이 바로 파라다이스! 여름 필수 아이템입니다.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🥤</span>
+                <h3>간편한 캔 음료</h3>
+                <p>언제 어디서나 가볍게 즐길 수 있는 355ml 캔 사이즈로 간편함을 더했습니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="story" class="reveal">
+        <div class="story-content">
+            <h2>Our Fizzy Story</h2>
+            <p>환타 파인애플은 지루한 일상에 활력을 불어넣기 위해 탄생했습니다. 밝은 노란색 컬러만큼이나 긍정적인 에너지를 전달합니다.</p>
+            <p>우리는 단순히 음료를 만드는 것이 아니라, 친구들과 함께 웃고 즐기는 그 '순간'을 만듭니다. 환타와 함께라면 매일매일이 축제입니다!</p>
+        </div>
+        <div class="story-image">
+            🍍✨
+        </div>
+    </section>
+
+    <section id="contact" class="reveal">
+        <h2 class="section-title">Get in Touch</h2>
+        <div class="contact-container">
+            <p style="margin-bottom: 40px; font-weight: 700; color: #666;">대량 구매 문의나 제휴 제안이 있으신가요? 연락주세요!</p>
+            <form class="contact-form">
+                <input type="text" placeholder="이름 (Name)">
+                <input type="email" placeholder="이메일 (Email)">
+                <input type="text" placeholder="연락처 (Phone)">
+                <button type="submit" class="submit-btn">메시지 보내기</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">FANTA PINEAPPLE</div>
+        <p class="copyright">
+            &copy; 2026 FANTA PINEAPPLE CONCEPT LANDING PAGE.<br>
+            본 페이지는 제출용 포트폴리오 프로젝트이며 실제 환타 공식 페이지가 아닙니다.
+        </p>
+    </footer>
+
+    <script>
+        // Bubble Effect
+        function createBubbles() {
+            const container = document.getElementById('bubble-container');
+            const bubbleCount = 20;
+            
+            for(let i = 0; i < bubbleCount; i++) {
+                const bubble = document.createElement('div');
+                bubble.className = 'bubble';
+                
+                const size = Math.random() * 20 + 10;
+                const posX = Math.random() * 100;
+                const delay = Math.random() * 5;
+                
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.left = `${posX}%`;
+                bubble.style.animationDelay = `${delay}s`;
+                
+                container.appendChild(bubble);
+            }
+        }
+
+        // Scroll Reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+        // Start
+        createBubbles();
+    </script>
+</body>
+</html>
